@@ -1,0 +1,245 @@
+body, #menuArea, .pageContainer, .page, .page img, #menuElement button, .menuButton {
+    margin: 0;
+    padding: 0;
+}
+
+/*might need to remove pageContainer
+add some test content to updates page to make sure*/
+html, body, #overflowWrapper, #menuArea, #pageContainer, .page {
+    /*touch-action: pinch-zoom;*/
+    touch-action: auto;
+}
+
+#updates {
+    touch-action: auto;
+    margin-top: 10vh;
+    text-align: center;
+    /*overscroll-behavior: none;*/
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    height: 100%;
+    background-color: #dddddd;
+}
+
+#home, #about {
+    scrollbar-width: none;
+}
+
+#menuArea {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    background-color: black;
+    flex-basis: 0;
+    top: 0%;
+    font-size: 2vw;
+    width: 100%;
+    height: 8vh;
+}
+
+.menuFlexElement {
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 100%;
+    display: flex;
+    flex-basis: 0;
+}
+
+.menuElement {
+    font-size: inherit;
+}
+
+.menuElement button img {
+    cursor: pointer;
+}
+
+.menuFlexElement button, #logoArea img {
+    flex-grow: 1;
+}
+
+#logoPadding {
+    flex-grow: 3;
+}
+
+.menuElement button {
+    background-color: black;
+    border-color: black;
+    color: white;
+    border-width: 0px;
+    border-style: none;
+    outline: none;
+    transition: color 0.5s;
+    font-size: inherit;
+    text-align: center;
+    text-indent: auto;
+}
+
+.menuElement img, button {
+    height: 100%;
+}
+
+#logoArea {
+    flex-grow: 6;
+    flex-shrink: 6;
+}
+
+.menuPadding {
+    flex-grow: 0.5;
+    flex-shrink: 0.5;
+}
+
+#pageContainer {
+    position: absolute;
+    width: 400%;
+    height: 92vh;
+    display: flex;
+    z-index: 1;
+    transition: transform 1s;
+    overflow-y: hidden;
+}
+
+.page {
+    padding-left: 1.25%;
+    padding-right: 1.25%;
+    width: 22.5%;
+    overflow-y: scroll; /*should account for overlay not working in firefox*/
+    overflow-y: overlay;
+}
+
+.page img {
+    width: 100%;
+    display: block;
+}
+
+#overflowWrapper {
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link, a:visited {
+    color:grey;
+}
+
+a:link:hover, a:visited:hover {
+    color:hotpink;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+    color:grey;
+}
+
+a:hover:-webkit-any-link {
+    color:hotpink
+}
+
+#logo {
+    max-width: 135px;
+}
+#homeWrapper {
+    width: 100%;
+    text-align: center;
+}
+
+#updatesWrapper {
+    width: 100%;
+    text-align: center;
+    overscroll-behavior: none;
+    touch-action: auto;
+}
+
+.homeContent {
+    color: black;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.arialFont {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#about {
+    text-align: center;
+}
+
+#aboutText {
+    font-size: 1.5em;
+}
+
+#linkedinImg {
+    width: 63px;
+    height: 61px;
+    margin: auto;
+}
+
+#testImage {
+    width: 100%;
+    height: 100%;
+}
+
+#hamburgerMenuArea {
+    display: none;
+}
+
+#mobileMenu {
+    z-index: 2;
+    visibility: hidden;
+    background-color: black;
+    height: 80vh;
+    width: 80vw;
+    left: 10vw;
+    right: 10vw;
+    text-align: center;
+    position: absolute;
+    top: 8vh;
+    border-radius: 0px 0px 15px 15px;
+    font-size: 9vh;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 850px) {
+    #updatesButton {
+        visibility: hidden;
+    }
+    #portfolioButton {
+        visibility: hidden;
+    }
+    #aboutArea {
+        display: none;
+    }
+    #hamburgerMenuArea {
+        display: flex;
+    }
+}
+
+.mobileMenuElement {
+    margin-top: 10vh;
+}
+
+/*attempt to style scrollbar*/
+html {
+    --scrollbarBG: #CFD8DC;
+    --thumbBG: #90A4AE;
+  }
+  #updates::-webkit-scrollbar, #portfolio::-webkit-scrollbar {
+    width: 11px;
+  }
+  #updates, #portfolio {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+  #updates::-webkit-scrollbar-track, #portfolio::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  #updates::-webkit-scrollbar-thumb, #portfolio::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }

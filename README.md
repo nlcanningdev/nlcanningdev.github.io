@@ -1,2 +1,2 @@
-# nlcanningdev.github.io
+# nlcanning.github.io
 website

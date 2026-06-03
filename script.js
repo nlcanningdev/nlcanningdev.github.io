@@ -29,6 +29,14 @@ const home = () => {
     revertColor("home");
 }
 
+const homeMouseover = () => {
+    homeButton.style.cursor = "pointer";
+}
+
+const homeMouseout = () => {
+    homeButton.style.cursor = "default";
+}
+
 const updates = () => {
     container.style.transform = "translateX(-25%)";
     currentPage = 1;
@@ -37,11 +45,13 @@ const updates = () => {
 
 const updatesMouseover = () => {
     updatesButton.style.color = "#8b99af";
+    updatesButton.style.cursor = "pointer";
 }
 
 const updatesMouseout = () => {
     if(currentPage != 1)
         updatesButton.style.color = "white";
+    updatesButton.style.cursor = "default";
 }
 
 const portfolio = () => {
@@ -52,11 +62,13 @@ const portfolio = () => {
 
 const portfolioMouseover = () => {
     portfolioButton.style.color = "#8b99af";
+    portfolioButton.style.cursor = "pointer";
 }
 
 const portfolioMouseout = () => {
     if(currentPage != 2)
         portfolioButton.style.color = "white";
+    portfolioButton.style.cursor = "default";
 }
 
 const about = () => {
@@ -67,11 +79,13 @@ const about = () => {
 
 const aboutMouseover = () => {
     aboutButton.style.color = "#8b99af";
+    aboutButton.style.cursor = "pointer";
 }
 
 const aboutMouseout = () => {
     if(currentPage != 3)
         aboutButton.style.color = "white";
+    aboutButton.style.cursor = "default";
 }
 
 const hamburgerMenu = () => {
@@ -111,6 +125,8 @@ const menuArea = document.getElementById("menuArea");
 const container = document.getElementById("pageContainer");
 const homeButton = document.getElementById("logo");
 homeButton.addEventListener("click", home);
+homeButton.addEventListener("mouseover", homeMouseover);
+homeButton.addEventListener("mouseout", homeMouseout);
 const updatesButton = document.getElementById("updatesButton");
 updatesButton.addEventListener("click", updates);
 updatesButton.addEventListener("mouseover", updatesMouseover);

@@ -159,6 +159,9 @@ document.getElementById('homeWrapper').style.marginTop =
 document.getElementById('aboutWrapper').style.marginTop = 
     String((document.getElementById('about').offsetHeight / 2) - (document.getElementById('aboutWrapper').offsetHeight / 2)) + "px";
 
+document.getElementById('portfolioWrapper').style.marginTop = 
+    String((document.getElementById('portfolio').offsetHeight / 2) - (document.getElementById('portfolioWrapper').offsetHeight / 2)) + "px";
+
 
 /*if(document.getElementById("updatesWrapper").offsetHeight < document.getElementById('home').offsetHeight) {
     document.getElementById("updatesWrapper").style.touchAction = "pinch-zoom";

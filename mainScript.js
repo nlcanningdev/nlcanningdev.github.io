@@ -182,16 +182,3 @@ window.addEventListener('resize', function(event) {
 });
 
 console.log("result: " + window.visualViewport.scale > 1);
-
-//hammer testing
-/*var updatesZoom = new Hammer(document.getElementById("updates"));
-updatesZoom.get('pinch').set({enable: true});
-updatesZoom.on("pinch", function(ev) {
-    console.log("test worked?");
-});
-
-var updatesWZoom = new Hammer(document.getElementById("updatesWrapper"));
-updatesWZoom.get('pinch').set({enable: true});
-updatesWZoom.on("pinch", function(ev) {
-    console.log("test worked?");
-});*/

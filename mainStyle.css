@@ -173,6 +173,10 @@ a:hover:-webkit-any-link {
     font-size: 1.5em;
 }
 
+#portfolioText {
+    font-size: 1.5em;
+}
+
 #linkedinImg {
     width: 63px;
     height: 61px;

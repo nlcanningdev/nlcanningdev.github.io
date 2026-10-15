@@ -1,0 +1,87 @@
+figure out how to put a link to it on my personal website in both updates and portfolio.
+
+game interface:
+"portfolio 1: hkos" as page title.
+0) select either "local" (1a-0) or "online" (1b).
+1a) list of 4 slots with a text field for display name and then some text with an arrow button to either side to select between cpu or local. once all players are set, click "ok" button (2a).
+1b) list of 4 slots with a text field for display name and then some text with an arrow button to either side to select between cpu, local or remote. once all players are set, click "ok" button (2b).
+2a) in the middle is displayed the symbols for which round it is, and tiles: <number remaining>.
+    under that is a quit button (0).
+    under that are images of all the discarded tiles.
+    on each side of this is displayed the player's display name, then their current seat, then their number of points, and then any open sets they have.
+    Underneath all this are your own held tiles, and beside them is space for buttons: hu, kong, pung, chow.
+    When a tile in your hand is hovered over, highlight it in yellow.
+    When someone wins, display an overlay:
+        name of player who won the hand and the symbols for the current round next to that.
+        all the tiles in the winning hand arranged into sets.
+        list of all the fan.
+        list of all the players with + or - and the amount their score changed by next to that and then the symbols for their seat next to that.
+        continue button (if game is over 0, if not 2a).
+2b)
+
+code details:
+instead of writing an encoder, have the resume version have the normal version, whereas the version for sharing with other people should have obfuscated variable/function names. (remember to remove this when uploaded)
+
+have all the images on google photos (separate drives per version) and have them in stateGeneral so that they only have to be accessed once. each state has container elements that append the elements
+    in stateGeneral as child.
+
+there's a 4 second delay after every single discard to give players the opportunity to call. remember that hu takes priority over kong and pon, which in turn take priority over chow.
+
+Unlike in riichi, there are no point pools, so points for each player begin at 0 and are added and subtracted as necessary.
+
+The player whose turn it currently is has their name drawn in a different colour.
+
+When calling chow or pong, the player must select the other two tiles to add onto (the player has unlimited time to do this).
+When calling a kong on their own turn the player selects either one tile and a three tile set, or four tiles.
+
+if the player messes up declaring a chow, pong or kong they get a dead hand penalty meaning hu is greyed out until the next hand. if they do this for a hu call you also pay out the equivalent of a 4 fan hand to
+    all other players.
+
+Shared has:
+    imageBlob (an array set to the length of all of the images required.)
+    roundWind (contains a RoundWind object.)
+    wall (an array of Tile objects that in random order is set with Tile objects at the start of each game. There is no dead wall in this version, so kong draws come from the other end)
+    currentWallLength (contains a CurrentWallLength object that uses the length of the wall array above)
+    quitElement (allows the user to quit)
+    current
+    discard (an array of Tile objects of a preset size. uses a fully transparent tile for discards that don't exist yet in order to keep the physical size unchanged)
+    currentSeat (seat whose turn it is. 0 = east, 1 = south, 2 = west, 3 = north)
+    player (an array of Player objects)
+
+RoundWind has:
+    roundWind (0 = east, 1 = south, 2 = west, 3 = north)
+    element (the actual image element)
+
+Tile has:
+    imageBlobIndex (index in imageBlob)
+    exists (0 = false, 1 = true)
+    suit (0 = )
+    element (the actual image element. this isn't used when the tile is still in the wall)
+
+CurrentWallLength has:
+    currentWallLength (current length of the wall array above ie. amount of tiles remaining in the wall (doesn't actually reflect the length of the wall array which remains the same))
+    element (actual image element)
+
+Player has:
+    displayName (DisplayName object)
+    seatWind (SeatWind object)
+    point (Point object)
+    isHandDead (0 = false, 1 = true)
+    concealedHandCurrentLength (current length of the concealed hand. ie. number of tiles remaining in the concealed hand)
+    revealedHandCurrentLength (current length of the revealed hand. ie. number of Sets in the revealed hand)
+    concealedHand (an array of 14 Tile objects. it has the same maximum length regardless of the current length above and simply uses transparent tiles for those tile elements which don't current exist)
+    revealedHand (an array of 4 Set objects. has the same maximum length regardless of the current length above and simply uses transparent tiles for those tile elements which don't currently exist)
+
+
+
+
+hong kong old style mahjong ai:
+cautious vs aggressive
+fast vs slow
+experience level 0-9
+
+Cautious determines how much a computer player pays attention to other players discards and whether they will try to fold. a cautious player will also pay more attention to whoever is the dealer.
+
+A fast computer player is more likely to go for whatever hand vs a slow computer player will try to go for more valuable hands.
+
+Experience level determines the quality of the calculations the computer player makes.

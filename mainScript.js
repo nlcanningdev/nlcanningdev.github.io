@@ -172,6 +172,8 @@ window.addEventListener('resize', function(event) {
     String((document.getElementById('home').offsetHeight /10)) + "px";
     document.getElementById('homeWrapper').style.marginTop = 
     String((document.getElementById('home').offsetHeight / 2) - (document.getElementById('homeWrapper').offsetHeight / 2)) + "px";
+    document.getElementById('portfolioWrapper').style.marginTop = 
+    String((document.getElementById('about').offsetHeight / 2) - (document.getElementById('aboutWrapper').offsetHeight / 2)) + "px";
     document.getElementById('aboutWrapper').style.marginTop = 
     String((document.getElementById('about').offsetHeight / 2) - (document.getElementById('aboutWrapper').offsetHeight / 2)) + "px";
     if(!(window.matchMedia("(max-width: 850px)").matches)) {

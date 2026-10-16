@@ -1,9 +1,11 @@
 figure out how to put a link to it on my personal website in both updates and portfolio.
 
 game interface:
-"portfolio 1: hkos" as page title.
-0) select either "local" (1a-0) or "online" (1b).
-1a) list of 4 slots with a text field for display name and then some text with an arrow button to either side to select between cpu or local. once all players are set, click "ok" button (2a).
+"Hong Kong Old Style Mahjong Online" as page title.
+0-0) tick or don't tick a box with text beside it saying "is host" and a field underneath which beside it says "room id". select either "local" (1-0) or "online" (1-0)
+1-0 (isHost, isOnline, roomID) list of 4 slots with a text field for display name and then some text with an arrow button to either side to select between cpu, local and online.
+once all players are set, click "ok" button (2-0).
+If isHost == 0 all these fields are greyed out. ok is only enabled if there are 4 ready players and for non-hosts the host must have already pressed ok.
 1b) list of 4 slots with a text field for display name and then some text with an arrow button to either side to select between cpu, local or remote. once all players are set, click "ok" button (2b).
 2a) in the middle is displayed the symbols for which round it is, and tiles: <number remaining>.
     under that is a quit button (0).

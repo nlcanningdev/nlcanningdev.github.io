@@ -1,80 +1,33 @@
-function createStateGeneral() {
+var state0_0;
+
+function createState0_0HostContainer() {
     return {
-        player0: createStatePlayer(),
-        player1: createStatePlayer(),
-        player2: createStatePlayer(),
-        player3: createStatePlayer(),
-        wall: createWall(),
-        discard: createDiscar()
+        text: 0,
+        checkBox: 0
     };
 }
 
-function createStatePlayer() {
+function createState0_0RoomIDContainer() {
     return {
-        displayName: 0,
-        seatWind: 0,
-        points: 0,
-        concealedHand: createConcealedHand(),
-        revealedHand: createRevealedHand()
+        text: 0,
+        field: 0
+    }
+}
+
+function createState0_0() {
+    return {
+        isHostContainer: createState0_0HostContainer(),
+        roomIDContainer: createState0_0RoomIDContainer(),
+        localOrOnlineContainer: createState0_0LocalOrOnlineContainer()
     };
 }
 
-function createState0() {
-    return {
-
-    };
+function setupState0_0() {
+    state_0_0 = createState0_0();
 }
 
-function createState1() {
-    return {
-        body: createState0BodyElement(),
-        bodyElement: 0
-    };
+function setup() {
+    setupState0_0();
 }
 
-function createState1BodyElement() {
-    return {
-        displayNameFieldElement0: 0,
-        submitButtonElement: 0
-    };
-}
-
-function createState2a() {
-    return {
-
-    };
-}
-
-function createState3a() {
-    return {
-
-    };
-}
-
-function setupState1() {
-    state0.body.displayNameFieldElement = document.createElement('input');
-    state0.body.displayNameFieldElement.id = 'state0BodyDisplayNameFieldElement';
-    state0.body.displayNameFieldElement.type = 'text';
-    state0.body.displayNameFieldElement.placeholder = 'display name';
-    state0.body.displayNameFieldElement.maxLength = "18";
-
-    state0.body.submitButtonElement = document.createElement('button');
-    state0.body.submitButtonElement.id = 'state0BodySubmitButtonElement';
-    state0.body.submitButtonElement.textContent = 'submit';
-    state0.body.submitButtonElement.cursor = 'pointer';
-
-    state0.bodyElement = document.createElement('div');
-    state0.bodyElement.id = 'state0BodyElement';
-
-    state0.bodyElement.appendChild(state0.body.displayNameFieldElement);
-    state0.bodyElement.appendChild(state0.body.submitButtonElement);
-    document.body.appendChild(state0.bodyElement);
-}
-
-var stateGeneral = createStateGeneral();
-var state0  = createState0();
-var state1 = createState1();
-var state2a = createState2a();
-var state3a = createState3a();
-
-setupState0();
+window.addEventListener("load", setup);
